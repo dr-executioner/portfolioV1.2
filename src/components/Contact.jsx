@@ -3,6 +3,8 @@ import SectionTitle from "./SectionTitle.jsx";
 import { socialLinks } from "../data/portfolioData.jsx";
 import { motion } from "framer-motion";
 import { sendMail } from "../services/analyse.js";
+import "../styles/loader.css";
+import RoundToast from "./ui/RoundToast.jsx";
 
 const contactItemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -18,6 +20,11 @@ const contactItemVariants = {
 
 const Contact = () => {
   const [message, setMessage] = useState("");
+  const [analysing, setAnalysing] = useState(false);
+  const [error, setError] = useState({ status: false, message: "" });
+  const [buttonText, setButtonText] = useState("Say Hello");
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -26,12 +33,23 @@ const Contact = () => {
 
   const handleSend = async () => {
     if (!message.trim()) return;
-
+    setAnalysing(true);
+    setButtonText("Analysing...");
     try {
       await sendMail(message);
+      setToastMessage();
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
       setMessage("");
     } catch (error) {
-      console.error("Error sending message:", error);
+      setAnalysing(false);
+      setError({ status: true, message: error.message });
+      setToastMessage(error.message)
+    } finally {
+      setAnalysing(false);
+      setButtonText("Say Hello");
     }
   };
   return (
@@ -57,15 +75,30 @@ const Contact = () => {
                 maxLength={200}
                 onChange={handleChange}
                 rows={4}
+                placeholder="Hi, please do mention email and name.."
               />
             </div>
             <button
               onClick={handleSend}
-              className="inline-block px-10 py-4 h-fit whitespace-nowrap font-mono text-lg bg-accent-1 text-primary-bg rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg hover:shadow-accent-1/30"
+              className="relative inline-block px-10 py-4 h-fit whitespace-nowrap font-mono text-lg bg-accent-1 text-primary-bg rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg hover:shadow-accent-1/30 overflow-hidden disabled:bg-accent-3 disabled:cursor-not-allowed"
+              disabled={analysing}
             >
-              Say Hello
+              <span className="relative z-10">
+                {analysing ? (
+                  <div className="flex items-center gap-2">
+                    <span class="loader"></span> {buttonText}
+                  </div>
+                ) : (
+                  buttonText
+                )}
+              </span>
             </button>
           </div>
+          <RoundToast
+            showToast={showToast}
+            toastMessage={toastMessage}
+            error={error}
+          />
           <div className="mt-12 flex justify-center space-x-6">
             {Object.entries(socialLinks).map(([key, link], index) => (
               <motion.a
