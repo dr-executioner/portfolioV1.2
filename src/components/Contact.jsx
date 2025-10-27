@@ -1,7 +1,8 @@
-import React from "react";
-import SectionTitle from "./SectionTitle";
-import { personalInfo, socialLinks } from "../data/portfolioData.jsx";
+import React, { useState } from "react";
+import SectionTitle from "./SectionTitle.jsx";
+import { socialLinks } from "../data/portfolioData.jsx";
 import { motion } from "framer-motion";
+import { sendMail } from "../services/analyse.js";
 
 const contactItemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +17,23 @@ const contactItemVariants = {
 };
 
 const Contact = () => {
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setMessage(e.target.value);
+  };
+
+  const handleSend = async () => {
+    if (!message.trim()) return;
+
+    try {
+      await sendMail(message);
+      setMessage("");
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
   return (
     <section id="contact" className="py-20 bg-primary-bg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,17 +51,17 @@ const Contact = () => {
             inbox is always open. I'll try my best to get back to you!
           </p>
           <div className="flex align-middle gap-4">
-            <a
-              href={`mailto:${personalInfo.email}`}
+            <button
+              onClick={handleSend}
               className="inline-block px-10 py-4 h-fit whitespace-nowrap font-mono text-lg bg-accent-1 text-primary-bg rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg hover:shadow-accent-1/30"
             >
               Say Hello
-            </a>
+            </button>
             <div className="w-full rounded-md">
               <textarea
-                
                 className="w-full px-4 py-1.5 text-primary-bg rounded-md focus:outline-none font-mono font-semibold"
                 maxLength={200}
+                onChange={handleChange}
               />
             </div>
           </div>
