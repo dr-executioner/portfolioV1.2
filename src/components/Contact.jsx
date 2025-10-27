@@ -50,20 +50,21 @@ const Contact = () => {
             you have a project in mind, a question, or just want to say hi, my
             inbox is always open. I'll try my best to get back to you!
           </p>
-          <div className="flex align-middle gap-4">
+          <div>
+            <div className="w-full rounded-md">
+              <textarea
+                className="w-full p-4 text-primary-bg rounded-md focus:outline-none font-mono font-semibold mb-4 resize-none"
+                maxLength={200}
+                onChange={handleChange}
+                rows={4}
+              />
+            </div>
             <button
               onClick={handleSend}
               className="inline-block px-10 py-4 h-fit whitespace-nowrap font-mono text-lg bg-accent-1 text-primary-bg rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg hover:shadow-accent-1/30"
             >
               Say Hello
             </button>
-            <div className="w-full rounded-md">
-              <textarea
-                className="w-full px-4 py-1.5 text-primary-bg rounded-md focus:outline-none font-mono font-semibold"
-                maxLength={200}
-                onChange={handleChange}
-              />
-            </div>
           </div>
           <div className="mt-12 flex justify-center space-x-6">
             {Object.entries(socialLinks).map(([key, link], index) => (
