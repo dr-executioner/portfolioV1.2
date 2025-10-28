@@ -48,7 +48,7 @@ const Contact = () => {
     setButtonText("Analysing...");
     try {
       await sendMail(message);
-      setToastMessage();
+      setToastMessage("Message Sent!");
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);

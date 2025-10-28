@@ -1,9 +1,9 @@
 export default function RoundToast({ showToast, toastMessage, error }) {
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 pointer-events-none z-50">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 pointer-events-none z-50 w-11/12 sm:w-8/12 max-w-xl">
       <div
         className={`
-            p-2 bg-white text-primary-bg rounded-full 
+            p-1.5 bg-white text-primary-bg rounded-sm md:rounded-full 
             shadow-2xl backdrop-blur-sm transition-all duration-500 ease-out
             flex items-center justify-center
             ${
@@ -13,7 +13,7 @@ export default function RoundToast({ showToast, toastMessage, error }) {
             }
           `}
       >
-        {error.status ? (
+        {error.status && !toastMessage.length ? (
           <svg
             className="w-12 h-12"
             fill="red"
@@ -31,7 +31,7 @@ export default function RoundToast({ showToast, toastMessage, error }) {
           <svg
             className="w-12 h-12"
             fill="none"
-            stroke="currentColor"
+            stroke="green"
             viewBox="0 0 24 24"
           >
             <path
@@ -42,7 +42,7 @@ export default function RoundToast({ showToast, toastMessage, error }) {
             />
           </svg>
         )}
-        <span className="font-medium text-md">{toastMessage}</span>
+        <span className="font-medium text-sm md:text-base">{toastMessage}</span>
       </div>
     </div>
   );
