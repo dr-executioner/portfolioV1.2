@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { sendMail } from "../services/analyse.js";
 import "../styles/loader.css";
 import RoundToast from "./ui/RoundToast.jsx";
+import { hasEmailAddressStrict } from "../utils/helper.js";
 
 const contactItemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -33,6 +34,16 @@ const Contact = () => {
 
   const handleSend = async () => {
     if (!message.trim()) return;
+    if (!hasEmailAddressStrict(message)) {
+      setShowToast(true);
+      setToastMessage(
+        "Psst! Your email is missing... don't leave me hanging like a bad Wi-Fi signal! 📶"
+      );
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3500);
+      return;
+    }
     setAnalysing(true);
     setButtonText("Analysing...");
     try {
@@ -42,12 +53,12 @@ const Contact = () => {
       setTimeout(() => {
         setShowToast(false);
       }, 2000);
-      setMessage("");
     } catch (error) {
       setAnalysing(false);
       setError({ status: true, message: error.message });
-      setToastMessage(error.message)
+      setToastMessage(error.message);
     } finally {
+      setMessage("");
       setAnalysing(false);
       setButtonText("Say Hello");
     }
