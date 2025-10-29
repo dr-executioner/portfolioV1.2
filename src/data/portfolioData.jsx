@@ -9,7 +9,11 @@ import {
   FaCss3Alt,
 } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
-import { TbBrandNextjs, TbBrandSupabase, TbBrandFramerMotion } from "react-icons/tb";
+import {
+  TbBrandNextjs,
+  TbBrandSupabase,
+  TbBrandFramerMotion,
+} from "react-icons/tb";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import {
   SiNeo4J,
@@ -17,6 +21,7 @@ import {
   SiPostman,
   SiGraphql,
   SiShadcnui,
+  SiReact,
 } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
@@ -66,58 +71,72 @@ export const education = [
 
 export const projects = [
   {
-    title: "AgriSure",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
+    title: "CliChat",
+    tech: ["Golang", "Websockets", "NeoVim", "BubbleTea"],
     description:
-      "Improved financial access for over 12,000 farmers boosting microloan approvals by 35% via CIBIL-based lending, integrating AI insights, and Hindi support via Google Translation. Engineered the full-stack system, handling frontend UI, backend API and database management.",
-    date: "March 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/AgriSure",
+      "A lightweight CLI chat app built with Go, WebSockets, and the amazing Bubbletea TUI framework. ✨ Features Real-time messaging using WebSockets, 💬 Interactive terminal UI powered by Bubbletea & Lipgloss, 🧠 Simple architecture with hub-based broadcast model, 🔧 Built with idiomatic Go using net/http and gorilla/websocket. ",
+    date: "August 2025 – September 2025",
+    githubLink: "https://github.com/dr-executioner/clichat",
+    liveLink: null,
+    category: "Terminal Ui",
+    icon: <FaGolang size={24} className="text-accent-1" />,
+  },
+  {
+    title: "Sentiment Analysis API – Gemini Powered",
+    tech: ["Typescript", "Node.js", "Express.js", "Supabase"],
+    description:
+      "A robust Node.js + TypeScript backend service for sentiment analysis, designed to intelligently filter and process messages from a portfolio’s “Contact Me” section. AI-powered, built with Railway cloud support, Docker-ready, and equipped with anti-abuse mechanisms for real-world deployment. 🚀 Features Google Gemini Integration: Uses Gemini generative AI to classify the usefulness and tone of incoming messages. Intelligent Filtering: Automatically screens out messages containing slang, random spam, or low-effort text before forwarding.",
+    date: "October 2025 – Present",
+    githubLink: "https://github.com/dr-executioner/Sa-service",
+    liveLink: null,
+    category: "Backend",
+    icon: <FaNodeJs size={24} className="text-accent-1" />,
+  },
+  {
+    title: "System HealthPulse",
+    tech: [
+      "React JS",
+      "Typescript",
+      "WebSockets",
+      "Golang (Go)",
+      "REST API",
+      "Docker",
+    ],
+    description:
+      "Built a cross-platform system health tracking solution designed for Turborepo workspaces. The platform consists of a React-based dashboard for monitoring real-time health metrics across all users. On the backend, a Golang service (functioning as a backend-for-frontend, or BFF) aggregates and manages user data. Users install a lightweight Golang application (cross-compiled for Windows, Mac, Linux) that runs as a background service. This app periodically gathers key system health information—such as CPU, memory, and uptime—and securely transmits updates every 5–10 seconds to the backend server. Incoming data is processed instantly and reflected on the dashboard, ensuring administrators always have an up-to-date view of their team's system health. This architecture enables robust, responsive monitoring for distributed teams, combining efficient Go services with a modern web frontend for actionable insights",
+    date: "June 2025",
+    githubLink: "https://github.com/dr-executioner/Syshealth-fe",
     liveLink: null,
     category: "Full Stack",
     icon: <FaReact size={24} className="text-accent-1" />,
   },
   {
-    title: "BuildBridge",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
+    title: "Data Weaver",
+    tech: [
+      "React JS",
+      "Shadcn Ui",
+      "Redux Toolkit",
+      "Express",
+      "Neo4j",
+      "Rest Api",
+    ],
     description:
-      "Streamlined contracting for construction projects, reducing deal closure time by 40% via an AI-based platform matching builders with clients. Developed both frontend and backend, integrating user authentication, contract storage, and a responsive UI.",
-    date: "March 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/BuildBridge", // Replace with actual link
-    liveLink: "https://build-bridge-seven.vercel.app/",
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1" />,
+      "DataWeaver is a graph analysis web application that visualizes relationships between nodes using data from a Neo4j graph database. It can display thousands of nodes with smooth interactive features such as zooming, panning, filtering, and querying, enabling users to explore complex networks with ease. The frontend is built using React, incorporating react-force-graph-2d for 2D force-directed graph rendering. Efficient data fetching and caching are handled by react-query, while memoize-one optimizes performance by memoizing computation-heavy functions.",
+    date: "November 2024",
+    githubLink: "https://github.com/dr-executioner/data-weaver",
+    liveLink: null,
+    category: "Data Visualisation",
+    icon: <SiReact size={24} className="text-accent-1" />,
   },
   {
-    title: "FarmConnect",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
+    title: "FinBoard",
+    tech: ["React.js", "Shadcn Ui", "Tailwind Css", "Google Apps Script"],
     description:
-      "Optimized crop storage for farmers, increasing warehouse occupancy by 25% via an AI-powered marketplace connecting farmers with warehouse owners. Developed a seamless booking system with real-time warehouse availability and farmer-friendly UI.",
-    date: "Feb 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/FarmConnect",
-    liveLink: "https://farm-connect-iota-psi.vercel.app/",
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1" />,
-  },
-  {
-    title: "WealthWise",
-    tech: ["React JS", "Node JS", "Firebase", "API Integration"],
-    description:
-      "Enhanced financial literacy and user engagement by 40% through an interactive fintech platform integrating gamification. Developed an engaging React UI with gamified elements ensuring smooth user interactions.",
-    date: "Jan 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/WealthWise",
-    liveLink: "https://wealthwisefinance.vercel.app/",
+      "Engineered FinBoard’s core plugin from inception, using React to build a scalable, maintainable architecture for future growth. Collaborated closely with designers to convert wireframes into pixel-perfect components utilizing ShadCN-UI and Tailwind CSS, ensuring a polished user interface. Developed a REST API layer with React Query to enable caching and real-time updates, boosting performance by up to 50%. Implemented automatic data refreshes and efficient fetch strategies to optimize user experience and application responsiveness. Managed global state effectively with Redux, coordinating data flow across multiple components and features. This approach maintained consistency and simplified state updates, even as the application scaled.",
+    date: "July 2023 - Sept 2023",
+    githubLink: "https://github.com/dr-executioner/gsplugin-finboard",
+    liveLink: null,
     category: "Fintech",
-    icon: <SiFirebase size={24} className="text-accent-1" />,
-  },
-  {
-    title: "Blood Shortage Survey and Dashboard",
-    tech: ["React.js", "Node.js", "MongoDB"],
-    description:
-      "Increased efficiency of blood shortage tracking for healthcare organizations by 60% through a real-time analytics dashboard. Built an intuitive React.js dashboard with real-time charts and data visualizations.",
-    date: "Jan 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/BloodLink",
-    liveLink: null,
-    category: "Healthcare",
     icon: <FaDatabase size={24} className="text-accent-1" />,
   },
 ];
@@ -169,30 +188,38 @@ export const skills = {
 
 export const leadershipAndInvolvement = [
   {
-    role: "Junior Partner",
-    organization: "The Apex Circle (TAC)",
-    duration: "Jan 2025 – Present",
+    role: "Software Engineer",
+    organization: "Software SImulations and Cyberspace - Singapore",
+    duration: "Nov 2024 - May 2025",
     points: [
-      "Participated in over 15 hackathons and technical events, collaborating with peers to build innovative solutions.",
-      "Mentored juniors by sharing knowledge, guiding them in projects, and fostering a strong tech community.",
+      "Tech Stack: React, TypeScript, Tailwind CSS, SCSS, Radix Ui, REST APIs, Microfrontend Architecture",
+      "Built and maintained a microfrontend-based enterprise application using React, TypeScript, and Tailwind CSS",
+      "Integrated a report dashboard with a trend analysis app via messageBus, improving modularity and real-time data consistency",
+      "Implemented interactive graph visualizations using @antv/g6 and react-force-graph-2d for scalable analytics",
+      "Contributed to the Backend for Frontend (BFF) layer using Node.js, designing REST endpoints and optimizing performance.",
+      "Designed document schemas in MongoDB for stateful components and app configurations",
     ],
   },
   {
-    role: "Technical Executive",
-    organization: "Computer Society of India, CU Student Branch",
-    duration: "Nov 2024 – Present",
+    role: "Frontend Developer",
+    organization: "HappyMonk Ai Labs - Bengaluru",
+    duration: "Aug 2023 - Oct 2024",
     points: [
-      "Organized 5+ workshops, hackathons, and competitions to enhance student learning and engagement.",
-      "Coordinated with faculty and industry experts to bring technical opportunities to students.",
+      "Tech Stack: Tech Stack: Typescript, NextJs, Material Ui, GraphQl, React-Query",
+      "Fullstack development of an interactive graph analysis web app, designing a Next.js + Apollo Client frontend integrated with a Go + SQL backend to serve structured relationship data for seamless, data-rich visualizations.",
+      "Developed a real-time logging module with persistent storage in MongoDB",
+      "Implemented server-side rendering and optimized data-fetching, improving load speeds by 40%",
     ],
   },
   {
-    role: "AMCAT 2nd Rank Holder",
-    organization: "Chandigarh University",
-    duration: "Sept 2024",
+    role: "Frontend Developer Intern",
+    organization: "HappyMonk Ai Labs - Bengaluru",
+    duration: "May 2023 - July 2023",
     points: [
-      "Secured 2nd rank in AMCAT among 5500+ peers, showcasing strong analytical and problem-solving skills.",
-      "Demonstrated excellence in aptitude, coding, and domain-specific assessments, outperforming competition.",
+      "Tech Stack: Typescript, NextJs, Material Ui, GraphQl",
+      "Implemented URQL for GraphQL data fetching, enhancing blog section performance by reducing load times by 40% and increasing user interaction efficiency",
+      "Integrated URQL for GraphQL data fetching, improving performance of blog section by 20%.",
+      "Built interactive maps using Mapbox GL and implemented real-time styling logic based on userinteractions",
     ],
   },
 ];

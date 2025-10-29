@@ -5,12 +5,12 @@ import { FaAward, FaUsers, FaBriefcase } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const experienceItemVariants = {
-  hidden: { opacity: 0, y: 30 }, // Adjusted y for a slightly different entry
+  hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1, // Slightly faster stagger
+      delay: i * 0.1,
       duration: 0.5,
       ease: "easeOut"
     },
@@ -20,11 +20,11 @@ const experienceItemVariants = {
 const Experience = () => {
   const getIcon = (title) => {
     const lowerTitle = title.toLowerCase();
-    const iconSize = "w-4 h-4 sm:w-5 sm:h-5"; // Centralized icon size
+    const iconSize = "w-4 h-4 sm:w-5 sm:h-5";
     if (lowerTitle.includes("partner")) return <FaBriefcase className={`text-accent-1 ${iconSize}`} />;
     if (lowerTitle.includes("executive")) return <FaUsers className={`text-accent-1 ${iconSize}`} />;
     if (lowerTitle.includes("rank") || lowerTitle.includes("holder")) return <FaAward className={`text-accent-1 ${iconSize}`} />;
-    return <FaBriefcase className={`text-accent-1 ${iconSize}`} />; // Default
+    return <FaBriefcase className={`text-accent-1 ${iconSize}`} />;
   };
 
   return (
