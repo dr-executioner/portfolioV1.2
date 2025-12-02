@@ -190,7 +190,7 @@ export const leadershipAndInvolvement = [
   {
     role: "Software Engineer",
     organization: "Software SImulations and Cyberspace - Singapore",
-    duration: "Nov 2024 - May 2025",
+    duration: "Jan 2024 - Nov 2025",
     points: [
       "Tech Stack: React, TypeScript, Tailwind CSS, SCSS, Radix Ui, REST APIs, Microfrontend Architecture",
       "Built and maintained a microfrontend-based enterprise application using React, TypeScript, and Tailwind CSS",
@@ -201,9 +201,9 @@ export const leadershipAndInvolvement = [
     ],
   },
   {
-    role: "Frontend Developer",
+    role: "Software Engineer",
     organization: "HappyMonk Ai Labs - Bengaluru",
-    duration: "Aug 2023 - Oct 2024",
+    duration: "July 2022 - Jan 2024",
     points: [
       "Tech Stack: Tech Stack: Typescript, NextJs, Material Ui, GraphQl, React-Query",
       "Fullstack development of an interactive graph analysis web app, designing a Next.js + Apollo Client frontend integrated with a Go + SQL backend to serve structured relationship data for seamless, data-rich visualizations.",
@@ -212,9 +212,9 @@ export const leadershipAndInvolvement = [
     ],
   },
   {
-    role: "Frontend Developer Intern",
+    role: "Software Engineer Intern",
     organization: "HappyMonk Ai Labs - Bengaluru",
-    duration: "May 2023 - July 2023",
+    duration: "Jan 2022 - Jun 2022",
     points: [
       "Tech Stack: Typescript, NextJs, Material Ui, GraphQl",
       "Implemented URQL for GraphQL data fetching, enhancing blog section performance by reducing load times by 40% and increasing user interaction efficiency",
